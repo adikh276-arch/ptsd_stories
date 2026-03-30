@@ -64,8 +64,30 @@
 </head>
 <body>
 <nav>
-  <div class="nav-logo" id="navLogo" onclick="showHero()">PTSD & Trauma Recovery</div>
-  <div class="nav-tag">Mental Health</div>
+  <div class="nav-logo" id="navLogo" onclick="showHero()" data-i18n="ptsd___trauma_recove">PTSD & Trauma Recovery</div>
+  <div class="nav-tag" data-i18n="mental_health">Mental Health</div>
+<select id="lang-selector" onchange="changeLang(this.value)" style="margin-left:auto; z-index:99; background:white; padding:5px; border-radius:5px; border:1px solid #ccc;">
+<option value="en">English</option>
+<option value="es">Español</option>
+<option value="fr">Français</option>
+<option value="de">Deutsch</option>
+<option value="hi">हिन्दी</option>
+<option value="ja">日本語</option>
+<option value="zh">中文</option>
+<option value="ko">한국어</option>
+<option value="ru">Русский</option>
+<option value="it">Italiano</option>
+<option value="pt">Português</option>
+<option value="ar">العربية</option>
+<option value="tr">Türkçe</option>
+<option value="nl">Nederlands</option>
+<option value="pl">Polski</option>
+<option value="vi">Tiếng Việt</option>
+<option value="th">ไทย</option>
+<option value="sv">Svenska</option>
+<option value="id">Bahasa Indonesia</option>
+<option value="fil">Filipino</option>
+</select>
 </nav>
 
 <section id="hero">
@@ -75,21 +97,21 @@
     <div class="orb orb3"></div>
   </div>
   <div class="hero-badge"><span class="badge-dot"></span> Real Stories · Real Emotions</div>
-  <h1 class="hero-title">Healing From <em>Trauma Is Possible</em></h1>
-  <p class="hero-sub">PTSD doesn't define you forever. These are stories of survivors finding their way to recovery.</p>
-  <p class="hero-quote">"You survived the worst, and that strength is still inside you." — Unknown</p>
-  <button class="cta-btn" onclick="showStories()">Read Their Stories →</button>
+  <h1 class="hero-title" data-i18n="healing_from_trauma_">Healing From <em>Trauma Is Possible</em></h1>
+  <p class="hero-sub" data-i18n="ptsd_doesn_t_define_">PTSD doesn't define you forever. These are stories of survivors finding their way to recovery.</p>
+  <p class="hero-quote" data-i18n="_you_survived_the_wo">"You survived the worst, and that strength is still inside you." — Unknown</p>
+  <button class="cta-btn" onclick="showStories()" data-i18n="read_their_stories__">Read Their Stories →</button>
   <div class="hero-stats">
-    <div class="stat"><div class="stat-num">3-4%</div><div class="stat-label">Have PTSD</div></div>
-    <div class="stat"><div class="stat-num">6</div><div class="stat-label">Stories Shared</div></div>
-    <div class="stat"><div class="stat-num">Recovery</div><div class="stat-label">Works</div></div>
+    <div class="stat"><div class="stat-num">3-4%</div><div class="stat-label" data-i18n="have_ptsd">Have PTSD</div></div>
+    <div class="stat"><div class="stat-num">6</div><div class="stat-label" data-i18n="stories_shared">Stories Shared</div></div>
+    <div class="stat"><div class="stat-num">Recovery</div><div class="stat-label" data-i18n="works">Works</div></div>
   </div>
 </section>
 
 <section id="stories-list">
   <div class="list-header">
-    <h2>Stories of PTSD & Trauma Recovery</h2>
-    <p>PTSD doesn't define you forever. These are stories of survivors finding their way to recovery.</p>
+    <h2 data-i18n="list-head">Stories of PTSD & Trauma Recovery</h2>
+    <p data-i18n="list-sub">PTSD doesn't define you forever. These are stories of survivors finding their way to recovery.</p>
   </div>
   <div class="cards-grid" id="cardsContainer"></div>
 </section>
@@ -107,5 +129,6 @@ function renderCards() { const container = document.getElementById('cardsContain
 function showStory(index) { const s = stories[index]; document.getElementById('hero').style.display = 'none'; document.getElementById('stories-list').style.display = 'none'; document.getElementById('story-detail').style.display = 'block'; document.getElementById('navLogo').classList.add('visible'); const storyParas = s.story.map(p => `<p>${p}</p>`).join(''); document.getElementById('detailContent').innerHTML = `<div class="story-hero-band"></div><h1 class="story-name-large">${s.name}, ${s.age}</h1><span class="story-identity-badge" style="background:#D0F0ED;color:#14B8A6;border-color:#14B8A6">${s.identity}</span><div class="portrait-wrap"><img src="${s.portrait_url}" alt="${s.name}"/></div><div class="story-body">${storyParas}</div><div class="story-highlight" style="border-color:#14B8A6;background:#D0F0ED;color:#14B8A6">"${s.highlight}"</div><div class="story-takeaway" style="border-color:#14B8A6;background:rgba(20,184,166,0.8)"><span class="takeaway-label" style="color:#14B8A6">🛡️ Something to sit with</span>${s.takeaway}</div><button class="back-to-stories-btn" onclick="showStories()">← Back to All Stories</button>`; window.scrollTo({ top: 0, behavior: 'smooth' }); }
 showHero();
 </script>
+<script src="/i18n/loader.js"></script>
 </body>
 </html>
